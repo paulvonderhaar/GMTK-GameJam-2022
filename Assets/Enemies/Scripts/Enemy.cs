@@ -5,16 +5,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public Transform playerPos;
     public Transform myPos;
     public Rigidbody2D rb;
 
     Vector2 moveDirection;
+    Transform playerPos;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerPos = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -27,4 +27,11 @@ public class Enemy : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      if (collision.gameObject.tag == "Player") {
+
+        Destroy(gameObject);
+      }
+    }
 }
