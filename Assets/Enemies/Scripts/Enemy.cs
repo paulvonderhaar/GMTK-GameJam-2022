@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public Transform myPos;
     public Rigidbody2D rb;
 
+    public float startHealth = 3f;
+    public float hp;
     Vector2 moveDirection;
     Transform playerPos;
 
@@ -15,6 +17,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         playerPos = GameObject.FindWithTag("Player").transform;
+        hp=startHealth;
     }
 
     // Update is called once per frame
@@ -29,9 +32,15 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      if (collision.gameObject.tag == "Player") {
+      if (collision.gameObject.tag == "Bullet") {
+        hp -= 1;
+        Debug.Log(hp);
+        if(hp <= 0)
+        {
+          Destroy(gameObject);
+        }
 
-        Destroy(gameObject);
+
       }
     }
 }

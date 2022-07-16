@@ -253,7 +253,7 @@ MonoBehaviour:
     m_Flags: 0
   rb: {fileID: 652088510}
   moveDirection: {x: 0, y: 0}
-  cam: {fileID: 0}
+  cam: {fileID: 1148287638}
 --- !u!212 &652088508
 SpriteRenderer:
   m_ObjectHideFlags: 0
