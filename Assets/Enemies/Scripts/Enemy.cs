@@ -27,4 +27,11 @@ public class Enemy : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      if (collision.gameObject.tag == "Player") {
+
+        Destroy(gameObject);
+      }
+    }
 }

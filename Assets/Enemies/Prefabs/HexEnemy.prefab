@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  playerPos: {fileID: 0}
   myPos: {fileID: 3537427578117127240}
   rb: {fileID: 3537427578117127237}
 --- !u!50 &3537427578117127237
