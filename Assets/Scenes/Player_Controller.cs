@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player_Controller : MonoBehaviour
-{       
+{
         public float moveSpeed=5f;
         public InputAction playerControls;
         public Rigidbody2D rb;
         public Vector2 moveDirection = Vector2.zero;
 
     private void Awake()
-    { 
+    {
 
         playerControls.Enable();
     }
@@ -24,9 +24,12 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = playerControls.ReadValue<Vector2>();
-        transform.Translate(moveDirection * moveSpeed);
+        moveDirection = playerControls.ReadValue<Vector2>().normalized;
 
+    }
+
+    void FixedUpdate() {
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
 }
