@@ -32,18 +32,22 @@ public class Dice : MonoBehaviour
         _numberOfSides = _sideNumberTransforms.Length;
         _sideRotations = new Quaternion[_numberOfSides];
         for(int i = 0; i < _numberOfSides; i++)
-        {   
+        {
             _sideRotations[i] = _sideNumberTransforms[i].rotation;
         }
         _isRolling = false;
         _rollCallback = (int value) => {};
+
+        _rollValue = 6;
+        _targetRotation = Quaternion.Inverse(_sideRotations[_rollValue - 1]);
+        transform.rotation = _targetRotation;
     }
 
     // Update is called once per frame
     private void Update()
     {
         if(_isRolling)
-        {  
+        {
             var rollTimeElapsed = Time.time - _rollStartTime;
             var rollTimeElapsedNormalized = (1.0F - (_rollTime - rollTimeElapsed)/_rollTime);
             if(rollTimeElapsedNormalized <= _randomRollCutoff)
@@ -59,7 +63,7 @@ public class Dice : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(
                     _rollStartRotation,
                     _targetRotation,
-                    (rollTimeElapsedNormalized - _randomRollCutoff) 
+                    (rollTimeElapsedNormalized - _randomRollCutoff)
                         * (1.0F/(1.0F-_randomRollCutoff))
                 );
             }
@@ -67,6 +71,7 @@ public class Dice : MonoBehaviour
             {
                 _rollCallback(_rollValue);
                 _isRolling = false;
+                transform.rotation = _targetRotation;
             }
         }
     }
