@@ -24,7 +24,7 @@ public class EnemySpawnUtils : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      enemyTypes = new GameObject[] {enemyType1, enemyType2, enemyType2};
+      enemyTypes = new GameObject[] {enemyType1, enemyType2, enemyType3};
     }
 
     // Update is called once per frame

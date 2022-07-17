@@ -68,6 +68,42 @@ public class WaveSpawner : MonoBehaviour
         StartCoroutine(helper.spawnEnemy(1, 12));
         StartCoroutine(helper.spawnEnemy(1, 13));
         StartCoroutine(helper.spawnEnemy(1, 14));
+
+        yield return new WaitForSeconds(1);
+        while(helper.enemiesOnField()) {
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(helper.spawnEnemy(1, 3));
+        StartCoroutine(helper.spawnEnemy(1, 4));
+        StartCoroutine(helper.spawnEnemy(1, 5));
+
+        StartCoroutine(helper.spawnEnemy(2, 12));
+
+        yield return new WaitForSeconds(1);
+        while(helper.enemiesOnField()) {
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(helper.spawnEnemy(1, 15));
+        StartCoroutine(helper.spawnEnemy(1, 0));
+        StartCoroutine(helper.spawnEnemy(1, 1));
+
+        StartCoroutine(helper.spawnEnemy(2, 12));
+        StartCoroutine(helper.spawnEnemy(2, 4));
+
+        yield return new WaitForSeconds(1);
+        while(helper.enemiesOnField()) {
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(helper.spawnEnemy(1, 15));
+        StartCoroutine(helper.spawnEnemy(1, 0));
+        StartCoroutine(helper.spawnEnemy(1, 1));
+
+        StartCoroutine(helper.spawnEnemy(3, 7));
+        StartCoroutine(helper.spawnEnemy(3, 9));
+
     }
 
     // Update is called once per frame
