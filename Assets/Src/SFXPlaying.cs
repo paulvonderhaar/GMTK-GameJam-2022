@@ -8,26 +8,27 @@ public class SFXPlaying : MonoBehaviour
   public AudioSource impact;
   public AudioSource teleport;
 
+  [SerializeField]
+  private float _laserVolume;
+  [SerializeField]
+  private float _impactVolume;
+  [SerializeField]
+  private float _teleportVolume;
+
     public void playLaser() {
-      if (laser.volume == 0f) {
-        laser.volume = 1.0f;
-      }
+       laser.volume = _laserVolume;
 
        laser.Play();
     }
 
     public void playImpact() {
-      if (impact.volume == 0f) {
-        impact.volume = 0.2f;
-      }
+       impact.volume = _impactVolume;
 
        impact.Play();
     }
 
     public void playTeleport() {
-      if (teleport.volume == 0f) {
-        teleport.volume = 0.2f;
-      }
+       teleport.volume = _teleportVolume;
        teleport.Play();
     }
 
