@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class Player_Controller : MonoBehaviour
       if (collision.gameObject.tag == "Enemy") {
         // Game Over
         Destroy(gameObject);
-        
+        SceneManager.LoadScene(0);
       }
 
     }
