@@ -903,6 +903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1969887685}
   - component: {fileID: 1969887684}
+  - component: {fileID: 1969887686}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -922,11 +923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73ce02ea14c74004ba0c3790b2a7873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 890004085}
-  whiteEnemyPrefab: {fileID: 7175317159087619702, guid: 1e7ce5c5e46f14244808755e6c5bdfbd, type: 3}
-  blueEnemyPrefab: {fileID: 7175317159087619702, guid: b3ecb6ac2f0714750ba5383e3f478fe2, type: 3}
-  redEnemyPrefab: {fileID: 7175317159087619702, guid: 21bb0e78b3873437ebc99cbeb38e1bbb, type: 3}
-  spawnInterval: 3.5
+  helper: {fileID: 1969887686}
+  spawnDelay: 3.5
 --- !u!4 &1969887685
 Transform:
   m_ObjectHideFlags: 0
@@ -942,6 +940,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969887686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969887683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5895fc2fed9fc4adfbe533300d9c4cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 890004085}
+  enemyType1: {fileID: 7175317159087619702, guid: 1e7ce5c5e46f14244808755e6c5bdfbd, type: 3}
+  enemyType2: {fileID: 7175317159087619702, guid: 21bb0e78b3873437ebc99cbeb38e1bbb, type: 3}
+  enemyType3: {fileID: 7175317159087619702, guid: b3ecb6ac2f0714750ba5383e3f478fe2, type: 3}
 --- !u!1 &2014643018
 GameObject:
   m_ObjectHideFlags: 0
