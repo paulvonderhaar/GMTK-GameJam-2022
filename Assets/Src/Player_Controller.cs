@@ -43,4 +43,14 @@ public class Player_Controller : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+
+      if (collision.gameObject.tag == "Enemy") {
+        // Game Over
+        Destroy(gameObject);
+        
+      }
+
+    }
+
 }
