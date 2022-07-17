@@ -125,4 +125,40 @@ public class EnemySpawnUtils : MonoBehaviour
 
         return pos;
     }
+
+    public IEnumerator spawnRandomWave(int numBasic, int numAdvanced, float interval = 0f) {
+      yield return new WaitForSeconds(interval);
+
+      var positions = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+      shuffle(positions);
+
+        for (int i = 0; i < positions.Length; i++) {
+          int pos = positions[i];
+          if (numBasic > 0) {
+            numBasic--;
+            StartCoroutine(spawnEnemy(1, pos));
+          }
+          else if (numAdvanced > 0) {
+            numAdvanced--;
+            int type = (Random.value <= 0.5f) ? 2 : 3;
+            StartCoroutine(spawnEnemy(type, pos));
+          }
+          else {
+            break;
+          }
+        }
+    }
+
+    void shuffle(int[] nums)
+    {
+        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        for (int t = 0; t < nums.Length; t++ )
+        {
+            int tmp = nums[t];
+            int r = Random.Range(t, nums.Length);
+            nums[t] = nums[r];
+            nums[r] = tmp;
+        }
+    }
+
 }

@@ -104,6 +104,77 @@ public class WaveSpawner : MonoBehaviour
         StartCoroutine(helper.spawnEnemy(3, 7));
         StartCoroutine(helper.spawnEnemy(3, 9));
 
+        StartCoroutine(helper.spawnRandomWave(2, 0));
+        StartCoroutine(helper.spawnRandomWave(2, 0, 1f));
+        StartCoroutine(helper.spawnRandomWave(2, 0, 2f));
+        StartCoroutine(helper.spawnRandomWave(2, 0, 3f));
+
+        StartCoroutine(helper.spawnRandomWave(2, 0, 6f));
+        StartCoroutine(helper.spawnRandomWave(2, 0, 7f));
+        StartCoroutine(helper.spawnRandomWave(2, 0, 8f));
+
+        yield return new WaitForSeconds(1);
+        while(helper.enemiesOnField()) {
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(helper.spawnRandomWave(2, 1));
+        StartCoroutine(helper.spawnRandomWave(2, 1, 1f));
+        StartCoroutine(helper.spawnRandomWave(2, 1, 2f));
+
+        yield return new WaitForSeconds(1);
+        while(helper.enemiesOnField()) {
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(helper.spawnRandomWave(4, 2));
+        StartCoroutine(helper.spawnRandomWave(0, 1, 1f));
+        StartCoroutine(helper.spawnRandomWave(2, 1, 2f));
+
+        yield return new WaitForSeconds(1);
+        while(helper.enemiesOnField()) {
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(spawnInfinitely());
+    }
+
+    private IEnumerator spawnInfinitely(float interval = 0f) {
+      yield return new WaitForSeconds(interval);
+      bool coinFlip1 = (Random.value <= 0.5f);
+      bool coinFlip2 = (Random.value <= 0.5f);
+
+      if (coinFlip1) {
+        if (coinFlip2) {
+          StartCoroutine(helper.spawnRandomWave(4, 2));
+          StartCoroutine(helper.spawnRandomWave(2, 1, 2f));
+          StartCoroutine(helper.spawnRandomWave(2, 2, 4f));
+        }
+        else {
+          StartCoroutine(helper.spawnRandomWave(6, 0));
+          StartCoroutine(helper.spawnRandomWave(2, 2, 3f));
+          StartCoroutine(helper.spawnRandomWave(2, 2, 5f));
+        }
+      }
+      else {
+        if (coinFlip2) {
+          StartCoroutine(helper.spawnRandomWave(6, 4));
+          StartCoroutine(helper.spawnRandomWave(2, 2, 2f));
+        }
+        else {
+          StartCoroutine(helper.spawnRandomWave(10, 0));
+          StartCoroutine(helper.spawnRandomWave(0, 2, 2f));
+          StartCoroutine(helper.spawnRandomWave(2, 2, 4f));
+          StartCoroutine(helper.spawnRandomWave(4, 2, 8f));
+        }
+      }
+
+      yield return new WaitForSeconds(1);
+      while(helper.enemiesOnField()) {
+          yield return new WaitForSeconds(1);
+      }
+
+      StartCoroutine(spawnInfinitely());
     }
 
     // Update is called once per frame
