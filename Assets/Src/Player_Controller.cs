@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -40,6 +41,16 @@ public class Player_Controller : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg-90f;
         rb.rotation = angle;
 
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+
+      if (collision.gameObject.tag == "Enemy") {
+        // Game Over
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
+      }
 
     }
 

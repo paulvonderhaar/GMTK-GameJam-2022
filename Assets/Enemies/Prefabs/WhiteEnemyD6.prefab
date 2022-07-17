@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  sfx: {fileID: 0}
   myPos: {fileID: 7175317159087619705}
   rb: {fileID: 7175317159087619707}
   dice: {fileID: 5168113384626429601}

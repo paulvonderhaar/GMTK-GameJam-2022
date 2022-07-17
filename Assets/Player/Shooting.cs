@@ -8,12 +8,13 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public InputAction gunControls;
+    public SFXPlaying sfx;
 
     public float bulletForce=20f;
 
     private void Awake()
     {
-
+        sfx = GameObject.FindWithTag("SFX").GetComponent<SFXPlaying>();
         gunControls.Enable();
     }
     private void onDisable()
@@ -35,5 +36,6 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab,firePoint.position, firePoint.rotation);
         Rigidbody2D rb =bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        sfx.playLaser();
     }
 }
