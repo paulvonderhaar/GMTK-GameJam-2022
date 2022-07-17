@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 2f;
+    public SFXPlaying sfx;
+
     public Transform myPos;
     public Rigidbody2D rb;
     public Dice dice;
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GameObject.FindWithTag("SFX").GetComponent<SFXPlaying>();
         playerPos = GameObject.FindWithTag("Player").transform;
         hp=startHealth;
     }
@@ -46,6 +49,7 @@ public class Enemy : MonoBehaviour
       if (isDead) { return; }
 
       if (collision.gameObject.tag == "Bullet") {
+        sfx.playImpact();
         hp -= 1;
         if(hp <= 0)
         {
