@@ -7,11 +7,14 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 2f;
     public Transform myPos;
     public Rigidbody2D rb;
+    public Dice dice;
 
-    public float startHealth = 3f;
-    public float hp;
+    public int startHealth = 1;
+    public int hp;
     Vector2 moveDirection;
     Transform playerPos;
+    bool isDead = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,20 +30,35 @@ public class Enemy : MonoBehaviour
     }
 
     void FixedUpdate() {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+      if (isDead) { return; }
+      rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    IEnumerator SelfDestruct(float delay)
+ {
+     yield return new WaitForSeconds(delay);
+     Destroy(gameObject);
+ }
+
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+      if (isDead) { return; }
+
       if (collision.gameObject.tag == "Bullet") {
         hp -= 1;
-        Debug.Log(hp);
         if(hp <= 0)
         {
-          Destroy(gameObject);
+          int val = dice.Roll(null);
+          Debug.Log(val);
+          if (val == 1) {
+            isDead = true;
+            StartCoroutine(SelfDestruct(.5f));
+            // Destroy(gameObject);
+          }
+          else {
+            hp = startHealth;
+          }
         }
-
-
       }
     }
 }

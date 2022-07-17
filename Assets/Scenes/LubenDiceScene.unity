@@ -826,7 +826,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1224832714, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
       propertyPath: _rollTime
-      value: 0.333333
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1224832714, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
       propertyPath: _randomRollSpeed
