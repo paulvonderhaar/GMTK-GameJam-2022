@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.4535791, y: 1}
+    m_SensorSize: {x: 1.7786561, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   impact: {fileID: 931161673}
   teleport: {fileID: 1185207003}
   _laserVolume: 0.8
-  _impactVolume: 0.5
+  _impactVolume: 0.4
   _teleportVolume: 0.2
 --- !u!4 &798744475
 Transform:
