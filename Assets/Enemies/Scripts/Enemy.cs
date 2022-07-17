@@ -44,6 +44,18 @@ public class Enemy : MonoBehaviour
      Destroy(gameObject);
  }
 
+ IEnumerator flyAway(float delay)
+{
+  yield return new WaitForSeconds(delay);
+  Collider2D collider = gameObject.GetComponent<Collider2D>();
+  collider.enabled = false;
+
+  transform.position = new Vector3(myPos.position.x, myPos.position.y, -3f);
+
+  rb.AddForce(moveDirection * -10f, ForceMode2D.Impulse);
+  sfx.playTeleport();
+}
+
 
     private void OnCollisionEnter2D(Collision2D collision) {
       if (isDead) { return; }
@@ -57,7 +69,8 @@ public class Enemy : MonoBehaviour
           Debug.Log(val);
           if (val == 1) {
             isDead = true;
-            StartCoroutine(SelfDestruct(.5f));
+            StartCoroutine(SelfDestruct(2f));
+            StartCoroutine(flyAway(.3f));
             // Destroy(gameObject);
           }
           else {
