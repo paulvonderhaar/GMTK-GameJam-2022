@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public Dice dice;
 
     public int startHealth = 1;
+    public int deathRoll = 1;
     public int hp;
     Vector2 moveDirection;
     Transform playerPos;

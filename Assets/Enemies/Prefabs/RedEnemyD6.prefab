@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7175317159087619700}
   - component: {fileID: 7175317159087619701}
   m_Layer: 0
-  m_Name: ImprovedEnemyD6
+  m_Name: RedEnemyD6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3641377438928166421}
+  - {fileID: 2874386382306558397}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,11 +150,11 @@ MonoBehaviour:
   moveSpeed: 2
   myPos: {fileID: 7175317159087619705}
   rb: {fileID: 7175317159087619707}
-  dice: {fileID: 7175317160631953458}
+  dice: {fileID: 8572815898363983770}
   startHealth: 1
   deathRoll: 1
   hp: 0
---- !u!1001 &7175317159440686840
+--- !u!1001 &8572815899320320336
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -217,21 +217,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5844297429705638125, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6507927002528684631, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
       propertyPath: m_Name
-      value: D6
+      value: Red D6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
---- !u!4 &3641377438928166421 stripped
+--- !u!4 &2874386382306558397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5844297429705638125, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
-  m_PrefabInstance: {fileID: 7175317159440686840}
+  m_PrefabInstance: {fileID: 8572815899320320336}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7175317160631953458 stripped
+--- !u!114 &8572815898363983770 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1224832714, guid: 38d052e2f94972749b1d17bab065b1ed, type: 3}
-  m_PrefabInstance: {fileID: 7175317159440686840}
+  m_PrefabInstance: {fileID: 8572815899320320336}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
