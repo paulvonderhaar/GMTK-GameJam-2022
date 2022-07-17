@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7175317159087619701}
   m_Layer: 0
   m_Name: BlueEnemyD6
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,11 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12727863a263c42eb9f25b02ca67e079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1
   myPos: {fileID: 7175317159087619705}
   rb: {fileID: 7175317159087619707}
   dice: {fileID: 6617360153814706343}
-  startHealth: 1
+  startHealth: 2
   deathRoll: 1
   hp: 0
 --- !u!1001 &6617360152891907693
