@@ -8,14 +8,17 @@ public class Enemy : MonoBehaviour
     public Transform myPos;
     public Rigidbody2D rb;
 
-    public float startHealth = 3f;
-    public float hp;
+    public int startHealth = 3;
+    public int hp;
     Vector2 moveDirection;
     Transform playerPos;
+
+    Dice dice;
 
     // Start is called before the first frame update
     void Start()
     {
+        dice = gameObject.GetComponent<Dice>();
         playerPos = GameObject.FindWithTag("Player").transform;
         hp=startHealth;
     }
@@ -33,14 +36,13 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
       if (collision.gameObject.tag == "Bullet") {
+        int val = dice.Roll(null);
         hp -= 1;
         Debug.Log(hp);
         if(hp <= 0)
         {
           Destroy(gameObject);
         }
-
-
       }
     }
 }
